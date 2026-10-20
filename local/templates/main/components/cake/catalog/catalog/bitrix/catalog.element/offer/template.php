@@ -81,28 +81,29 @@ if ($haveOffers) {
 				<h1 class="product-head__title page-title page-title--1 js-product-title"><?= $curItem["NAME"] ?></h1>
 				<?php
 
-				// Иконки рейтинга и отзывов ?>
+				// Иконки рейтинга и отзывов
+				// Рейтинг показываем только при наличии отзывов, иначе — «Отзывов пока нет»
+				$ratingCount = (int)($arResult['PROPERTIES']['RATING_CNT']['VALUE'] ?? 0);
+				$ratingAvg = $arResult['PROPERTIES']['RATING_AVG']['~VALUE'] ?? 0; ?>
 				<div class="product-head__rating">
-					<? // Иконка рейтинга ?>
-					<div class="product-head__stars">
-						<svg width="17" height="17"><use xlink:href="<?= SITE_TEMPLATE_PATH ?>/tpl/assets/icons/sprite.svg#star"></use></svg>
-						<span><?= empty($arResult['PROPERTIES']['RATING_AVG']['~VALUE']) ? 0 : $arResult['PROPERTIES']['RATING_AVG']['~VALUE'] ?></span>
-					</div>
-					<? // Иконка комментариев ?>
-					<div class="product-head__feedback">
-						<svg width="17" height="17"><use xlink:href="<?= SITE_TEMPLATE_PATH ?>/tpl/assets/icons/sprite.svg#feedback-cloud"></use></svg>
-						<span><?= $arResult['PROPERTIES']['RATING_CNT']['VALUE'] ?></span>
-					</div>
-
-					<?//if ($curItem['PROPERTIES']['ARTICLE']['VALUE']):?>
-                <div>
-                  <span class="js-product-article-title">Артикул:</span>    <span class="js-product-article"><?=$curItem['XML_ID']?> </span>
-
-                </div>
-
-
-					<?//endif;?>
-
+					<? if ($ratingCount > 0) { ?>
+						<? // Иконка рейтинга ?>
+						<div class="product-head__stars">
+							<svg width="17" height="17"><use xlink:href="<?= SITE_TEMPLATE_PATH ?>/tpl/assets/icons/sprite.svg#star"></use></svg>
+							<span><?= $ratingAvg ?></span>
+						</div>
+						<? // Иконка комментариев ?>
+						<div class="product-head__feedback">
+							<svg width="17" height="17"><use xlink:href="<?= SITE_TEMPLATE_PATH ?>/tpl/assets/icons/sprite.svg#feedback-cloud"></use></svg>
+							<span><?= $ratingCount ?></span>
+						</div>
+					<? } else { ?>
+						<div class="product-head__feedback product-head__feedback--empty">
+							<svg width="17" height="17"><use xlink:href="<?= SITE_TEMPLATE_PATH ?>/tpl/assets/icons/sprite.svg#feedback-cloud"></use></svg>
+							<span>Отзывов пока нет</span>
+						</div>
+					<? } ?>
+					<? // Служебный артикул (XML_ID из МойСклад) покупателю не показываем ?>
 				</div>
 			</div>
 
@@ -272,8 +273,14 @@ if ($haveOffers) {
 		<div class="product-characteristic">
 			<h2 class="title-3">Характеристики</h2>
 			<div class="product-characteristic__list">
-				<? // характеристики товара
-				foreach ($arResult['DISPLAY_PROPERTIES'] as $prop) { ?>
+				<? // служебные свойства, которые покупателю не показываем
+				$hiddenProps = ['Артикул', 'Артикул МойСклад'];
+
+				// характеристики товара (без служебных и дублей)
+				$seenProps = [];
+				foreach ($arResult['DISPLAY_PROPERTIES'] as $prop) {
+					if (in_array($prop['NAME'], $hiddenProps, true) || isset($seenProps[$prop['NAME']])) continue;
+					$seenProps[$prop['NAME']] = true; ?>
 					<div data-for-sku="0"  class="product-characteristic__item js-property-row">
 						<div class="product-characteristic__item-name"><?= $prop['NAME'] ?></div>
 						<div class="product-characteristic__item-value"><?= $prop['VALUE'] ?></div>
@@ -281,8 +288,10 @@ if ($haveOffers) {
 				<? }
 				// характеристики всех торговых предложений
 				foreach ($arResult['OFFERS'] as $offer) {
+					$seenProps = [];
 					foreach ($offer['DISPLAY_PROPERTIES'] as $prop) {
-							?>
+						if (in_array($prop['NAME'], $hiddenProps, true) || isset($seenProps[$prop['NAME']])) continue;
+						$seenProps[$prop['NAME']] = true; ?>
 						<div data-for-sku="<?= $offer['ID'] ?>" class="product-characteristic__item js-property-row" <?= $offer['ID'] !== $curItem['ID'] ? 'style="display:none"' : ''?>>
                             <div class="product-characteristic__item-name"><?= $prop['NAME'] ?></div>
                             <div class="product-characteristic__item-value"><?= $prop['VALUE'] ?></div>
@@ -385,12 +394,15 @@ $jsonLD = array(
     ),
 
     "url" => $arResult['DETAIL_PAGE_URL'],
-    "aggregateRating" => array(
+);
+// рейтинг в микроразметке — только если есть отзывы
+if ($ratingCount > 0) {
+    $jsonLD["aggregateRating"] = array(
         "@type" => "AggregateRating",
-        "ratingValue" => $arResult['PROPERTIES']['RATING_AVG']['~VALUE'],
-        "reviewCount" => $arResult['PROPERTIES']['RATING_CNT']['~VALUE']
-    )
-); ?>
+        "ratingValue" => $ratingAvg,
+        "reviewCount" => $ratingCount
+    );
+} ?>
 <script type="application/ld+json">
     <?= json_encode($jsonLD, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) ?>
 </script>

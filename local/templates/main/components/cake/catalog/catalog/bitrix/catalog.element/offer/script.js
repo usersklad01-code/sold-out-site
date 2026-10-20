@@ -288,7 +288,8 @@ DJ.ProductCard = class {
 
 			$(".js-product-discount").html(offer.PRICE.DISCOUNT);
 			$(".js-product-discount-percent").html("-" + offer.PRICE.DISCOUNT_PERCENT + "%");
-			if (offer.PRICE.DISCOUNT > 0) {
+			// DISCOUNT — отформатированная строка цены, поэтому проверяем процент скидки
+			if (Number(offer.PRICE.DISCOUNT_PERCENT) > 0) {
 				$(".js-product-discount").parent().show();
 			} else {
 				$(".js-product-discount").parent().hide();

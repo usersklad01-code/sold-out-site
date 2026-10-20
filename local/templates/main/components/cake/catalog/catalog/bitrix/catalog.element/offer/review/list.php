@@ -77,6 +77,12 @@
 	// Панелька рейтинга ?>
 	<div class="product-reviews__right">
 		<div class="rating-box">
+			<? // Процент «нравится», звёзды и распределение оценок — только при наличии отзывов
+			if (empty($arResult["REVIEWS"])) { ?>
+			<div class="rating-box__top">
+				<p>Отзывов пока нет. Станьте первым, кто оценит этот товар.</p>
+			</div>
+			<? } else { ?>
 			<div class="rating-box__top">
 				<span><?= $arResult["REVIEWS_LIKE"] ?>%</span>
 				<p>Пользователям нравится этот товар</p>
@@ -103,6 +109,7 @@
 					</div>
 				<? } ?>
 			</div>
+			<? } ?>
 			<a class="btn btn--big rating-box__btn js-btn-review" href="javascript:void(0)"><span class="btn__label">Написать отзыв</span></a>
 		</div>
 	</div>

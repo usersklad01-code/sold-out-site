@@ -69,7 +69,7 @@ if (empty($arResult['SKU_PROPS']) && is_array($arResult['OFFERS']) && count($arR
  * **************************************************************************/
 $arResult['DELIVERY_BLOCK'] = \Cake\Company\Contacts::getDeliveryList();
 $arResult['DELIVERY_BLOCK']['365'] = array(
-    'NAME' => 'дней',
+    'NAME' => '1 год',
     'DESCRIBE' => 'гарантийного обслуживания',
     'DESCRIBE_FULL' => 'гарантийного обслуживания'
 );
