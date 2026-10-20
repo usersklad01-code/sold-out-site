@@ -1,0 +1,9 @@
+<?
+$MESS["REGISTER_FIELD_LOGIN"] = "Логин (мин. 3 символа)";
+$MESS["REGISTER_FIELD_EMAIL"] = "Email";
+$MESS["REGISTER_FIELD_PASSWORD"] = "Пароль";
+$MESS["REGISTER_FIELD_CONFIRM_PASSWORD"] = "Подтверждение пароля";
+$MESS["REGISTER_FIELD_NAME"] = "Имя";
+$MESS["REGISTER_FIELD_SECOND_NAME"] = "Отчество";
+$MESS["REGISTER_FIELD_LAST_NAME"] = "Фамилия";
+$MESS["REGISTER_FIELD_PHONE_NUMBER"] = "Номер телефона";

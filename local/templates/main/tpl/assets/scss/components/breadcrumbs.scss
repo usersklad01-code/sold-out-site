@@ -1,0 +1,30 @@
+.breadcrumbs {
+    padding: 10px 0 20px;
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__link {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: $color-dark-gray-1;
+        margin-right: 5px;
+        &-after:not(:last-child):after{
+            content: "/";
+        }
+        &-after{
+            font-weight: 400;
+            font-size:12px;
+            line-height: 15px;
+            color:#616161;
+            margin-right: 5px;
+        }
+    }
+
+}

@@ -1,0 +1,72 @@
+.order {
+
+}
+
+.order__layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 20px;
+  align-items: flex-start;
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+}
+
+.order__form {
+  background: $color-default-white;
+  border-radius: 20px;
+  padding: 20px 28px;
+
+  @media (max-width: 768px) {
+    padding: 20px 10px;
+  }
+}
+
+.order__content {
+  background: $color-default-white;
+  border-radius: 20px;
+  padding: 22px 28px;
+
+  @media (max-width: 1024px) {
+    order: -1;
+  }
+  @media (max-width: 768px) {
+    padding: 20px 10px;
+  }
+}
+
+
+
+.order__carts {
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.order__total {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: right;
+  color: $color-default-black;
+  margin: 0;
+  @media (max-width: 1024px) {
+    text-align: left;
+  }
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+
+
+.order__installment {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

@@ -1,0 +1,35 @@
+.product-page {
+  .container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+  }
+
+  @media (max-width: 1024px) {
+    .product-page__row {
+      flex-direction: column;
+      display: flex;
+      row-gap: 20px;
+      &--start{
+        align-items: stretch;
+      }
+    }
+  }
+
+}
+
+.product-page__row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 20px;
+
+  &--start {
+    align-items: flex-start;
+  }
+}
+
+.product-page__detail {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}

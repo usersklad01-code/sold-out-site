@@ -1,0 +1,127 @@
+.category-slider {
+    position: relative;
+    display: flex;
+    column-gap: 10px;
+    z-index: 1;
+    overflow: hidden;
+    &--border{
+        .category-slider-card,
+        .product-card{
+            border: 1px solid #F0F0F0;
+            border-radius: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column !important;
+        row-gap: 10px;
+        &--border{
+            .category-slider-card{
+                border: none;
+            }
+
+        }
+    }
+}
+
+.category-slider.to-left {
+    flex-direction: row-reverse;
+    margin-right: 0;
+}
+
+.category-slider__wrapper {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    margin-left: -10px;
+    min-width: 983px;
+}
+
+.category-slider__slider {
+    max-width: 100%;
+    margin-right: -10px;
+    border-radius: 20px;
+}
+
+.category-slider__slide {
+    width: calc(100% / 4 - 10px);
+
+    &--big {
+        width: calc(100% / 2 - 10px);
+    }
+}
+
+.category-slider-card {
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+    width: 100%;
+    min-width: 242px;
+    max-width: 242px;
+    border-radius: 20px;
+    background-color: $color-default-white;
+    padding: 30px;
+
+
+    @media (max-width: 768px) {
+        flex-direction: row;
+        max-width: 100%;
+        padding: 0;
+        background: none;
+        border: none;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 27px;
+        line-height: 1.2;
+        margin-bottom: 17px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 0;
+            font-size: 18px;
+        }
+
+    }
+
+    &__container {
+        @media (max-width: 768px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            column-gap: 20px;
+            width: 100%;
+        }
+    }
+
+    &__btn-all {
+        @media (max-width: 768px) {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            background-color: $color-default-white;
+            padding: 12px 20px;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+
+        &-prev,
+        &-next {
+            border: none;
+            background: none;
+            padding: 18px;
+        }
+
+        &-prev svg {
+            transform: rotate(180deg);
+        }
+    }
+}

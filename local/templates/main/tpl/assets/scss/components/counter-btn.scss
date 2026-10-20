@@ -1,0 +1,40 @@
+.counter-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px;
+  border: 1px solid $color-white-smoke;
+  border-radius: 25px;
+  width: max-content;
+  transition: border-color 0.3s ease;
+  &:has(input:focus,input:active){
+    border: 1px solid $color-middle-gray;
+    transition: border-color 0.3s ease;
+  }
+  & input{
+    outline: none;
+    border: none;
+    width: 12px;
+    max-width: 35px;
+    padding: 0;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  button {
+    background-color: $color-transparent;
+    border: none;
+    padding: 0;
+    height: 18px;
+    width: 18px;
+  }
+  span{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: $color-default-black;
+    width: auto;
+  }
+
+  column-gap: 20px;
+}

@@ -1,0 +1,85 @@
+.faq-block {
+    &__head {
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 27px;
+        margin: 0 0 30px;
+    }
+
+    &__container {
+        display: flex;
+        column-gap: 40px;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+        &-col {
+            width: 50%;
+
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+        }
+    }
+
+    &__collapsible-block {
+        padding: 0 0 20px;
+        border-top: 1px solid #F0F0F0;
+        color:#000000;
+    }
+
+    &__collapsible-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 10px;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        background: none;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: start;
+
+        @media (max-width: 768px) {
+            font-size: 14px;
+            line-height: 17px;
+        }
+
+        svg {
+            transition: all 0.2s ease-out;
+            flex-shrink: 0;
+        }
+
+        span {
+            overflow: hidden;
+            -webkit-overflow: hidden;
+            text-overflow: ellipsis;
+            display: -moz-box;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            box-orient: vertical;
+            -moz-box-orient: vertical;
+            -webkit-box-orient: vertical;
+            color: #000000;
+        } 
+    }
+
+    &__collapsible-content {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 16px;
+        padding-left: 10px;
+    }
+}
+
+.faq-block__collapsible-btn.active {
+    svg {
+        transform: rotate(180deg);
+    }
+}

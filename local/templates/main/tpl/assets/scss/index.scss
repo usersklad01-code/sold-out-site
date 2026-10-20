@@ -1,0 +1,105 @@
+@import "variables";
+@import "mixins";
+
+/*libs*/
+@import "libs/swiper";
+@import "libs/selectize";
+@import "libs/nouislider";
+@import "libs/fancybox";
+
+// global
+@import "global/container";
+@import "global/fonts";
+@import "global/reboot";
+@import "global/typography";
+@import "global/utils";
+
+// components
+@import "components/input";
+@import "components/modal";
+@import "components/button";
+@import "components/features";
+@import "components/promo-slider";
+@import "components/product-card";
+@import "components/category-card";
+@import "components/category-slider";
+@import "components/breadcrumbs";
+@import "components/category-tags";
+@import "components/pagination";
+@import "components/select";
+@import "components/product-slider";
+@import "components/catalog-filter";
+@import "components/checkbox-filter";
+@import "components/checkbox-switch";
+@import "components/checkbox-button";
+@import "components/news-item";
+@import "components/promo-banner";
+@import "components/gallery-small";
+@import "components/collapsible-block";
+@import "components/faq-block";
+@import "components/order-table";
+@import "components/personal-data";
+@import "components/favorites";
+@import "components/pc-notifications";
+@import "components/form-order";
+@import "components/order-cart";
+@import "components/counter-btn";
+@import "components/busket-btn";
+@import "components/installment";
+@import "components/product-short-character";
+@import "components/radio-color";
+@import "components/radio-storage";
+@import "components/product-characteristic";
+@import "components/product-reviews";
+@import "components/rating-box";
+@import "components/review-el";
+@import "components/sale-card";
+@import "components/sale-detail";
+@import "components/order-total";
+@import "components/promocod";
+@import "components/round-form";
+@import "components/addition-product";
+@import "components/compare-card";
+@import "components/modal-is-city";
+@import "components/modal-select-sity";
+@import "components/search-line-form";
+@import "components/modal-registration";
+@import "components/enter-with";
+@import "components/socials";
+@import "components/modal-enter";
+@import "components/modal-basket";
+@import "components/modal-review";
+@import "components/star-rating";
+@import "components/footer-small";
+@import "components/block-news";
+@import "components/one-click-form";
+
+// layouts
+@import "layouts/main/index";
+
+// pages
+@import "pages/main";
+@import "pages/catalog-categories";
+@import "pages/catalog-products";
+@import "pages/catalog-detail";
+@import "pages/company";
+@import "pages/news-page";
+@import "pages/contacts";
+@import "pages/not-found";
+@import "pages/credit";
+@import "pages/service-page";
+@import "pages/pc";
+@import "pages/favorite";
+@import "pages/order";
+@import "pages/product-page";
+@import "pages/basket";
+@import "pages/search";
+@import "pages/compare";
+
+
+
+
+
+
+
+

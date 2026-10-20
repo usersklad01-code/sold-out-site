@@ -1,0 +1,153 @@
+.basket {
+  .category-slider__wrapper {
+    //min-width: unset;
+    margin-left: 0;
+  }
+  .category-slider-card{
+    min-width: unset;
+  }
+
+  .category-slider__slider {
+    margin-right: 0;
+  }
+
+  .addition-product {
+    max-width: 60%;
+  }
+  @media (max-width: 1024px) {
+    .addition-product {
+      max-width: 60%;
+    }
+    .category-slider__wrapper {
+      min-width: 983px;
+    }
+  }
+  @media (max-width: 768px) {
+    .addition-product {
+      max-width: unset;
+    }
+
+  }
+}
+
+.basket__layout {
+  display: grid;
+  grid-template-columns: 65% 34%;
+  column-gap: 15px;
+  @media (max-width: 1280px) {
+    grid-template-columns: 61% 37%;
+    column-gap: 10px;
+
+  }
+  @media (max-width: 1024px) {
+    display: block;
+
+  }
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+
+}
+
+.basket__content {
+  background-color: $color-default-white;
+  padding: 20px;
+  padding-left: 48px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  max-width: 802px;
+  @media (max-width: 1024px) {
+    max-width: unset;
+    padding-left: 20px;
+  }
+  @media (max-width: 768px) {
+    row-gap: 20px;
+    padding: 20px 10px;
+    display: contents;
+  }
+
+}
+.basket-total-block{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media screen and (max-width: 1024px){
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+.basket__promocod {
+  max-width: 50%;
+  @media (max-width: 1024px) {
+    max-width: 60%;
+  }
+  @media (max-width: 768px) {
+    max-width: unset;
+  }
+}
+
+.basket__order-total-tablet {
+  display: none;
+  @media (max-width: 1024px) {
+    display: flex;
+  }
+
+}
+
+.basket__summary {
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.basket__content-list{
+  display: flex;
+  flex-direction: column;
+  & .order-cart{
+    margin-top: 0;
+    gap: 30px;
+    padding: 20px 0;
+    @media screen and (max-width: 767px) {
+      gap: 10px;
+    }
+    &__img{
+      @media screen and (max-width: 767px) {
+        height: 70px;
+        & img{
+          margin: 0;
+          margin-bottom: auto;
+          object-fit: contain;
+          max-width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+row-gap: 20px;
+  }
+}
+
+.basket__back{
+  display: contents;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: $color-default-white;
+    padding: 20px 10px;
+    border-radius: 20px;
+  }
+}
+.basket-coupon-block-total-price-old
+{
+  text-decoration: line-through;
+}
+

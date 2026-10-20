@@ -1,0 +1,49 @@
+.compare-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  padding: 10px 16px;
+  max-width: 160px;
+  min-width: 160px;
+  height: 285px;
+  justify-content: flex-end;
+}
+
+.compare-card__img img {
+  max-height:114px;
+
+}
+
+.compare-card__content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.compare-card__title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 10px;
+  color: #000000;
+}
+
+.compare-card__price {
+  display: flex;
+  column-gap: 10px;
+}
+
+.compare-card__new-price {
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.compare-card__old-price {
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 10px;
+  text-decoration-line: line-through;
+  color: #000000;
+}
